@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .box>button{
+      flex-basis: 24%;
+      margin-bottom: 1em;
+      padding: 0.5em 1em;
+      color: #000;
+      outline: none;
+      background: transparent;
+      text-transform: uppercase;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 1em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s;
+    }
+  .button::after,
+  .button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #0b42a5;
+    z-index: -1;
+    transform: translate3d(0,-100%,0);
+    transition: all 0.5s;
+  }
+  .button::before{
+    background: #bad2ff;
+    z-index: -2;
+    transform: translate3d(0,0,0);
+  }
+  .button:hover{
+    color: #fff;
+  }
+  .button:hover::after{
+    transform: translate3d(0,0,0);
+  }
+  .slideleft::after{
+    top: 0;
+    z-index: -1;
+    transform: translate3d(-101%,0,0);
+  }
+  .slideleft:hover::after{
+    transform: translate3d(0,0,0);
+
+  }
+  .slidecorner::after{
+    z-index: -1;
+    transform: translate3d(-101%,100%,0);
+  }
+  .slidecorner:hover::after{
+    transform: translate3d(0,0,0);
+  }
+  .slideangle::after{
+    z-index: -1;
+    transform-origin: 0 bottom;
+    transform: translate3d(-10%,0,0) rotate(-50deg);
+  }
+  .slideangle:hover::after{
+    transform: rotate(0deg);
+
+  }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <button class="button">slide</button>
+    <button class="button slideleft">slide</button>
+    <button class="button slidecorner">slide xx</button>
+    <button class="button slideangle">slide dd</button>
+
+  </div>
+</body>
+</html>
